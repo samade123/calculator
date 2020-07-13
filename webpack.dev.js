@@ -8,8 +8,6 @@ module.exports = merge(common, {
   output: {
     filename: '[name].js',
     globalObject: 'this',
-    // path: __dirname + "/dist",
-    // publicPath: '/dist/',
   },
   module: {
     rules: [
