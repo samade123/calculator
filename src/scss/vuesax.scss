@@ -1,0 +1,67 @@
+// .vs-input--input {
+//   // background: #fff5;
+//   background: #00000033;
+//   border-radius: 15px;
+//   &:hover {
+//     height: 30px;
+//   }
+// }
+
+.vs-con-input .vs-icon {
+  // background: #fff;
+  transition: font-size 0.3s;
+  &:hover {
+    cursor: pointer;
+    font-size: 22px;
+    color: blue;
+  }
+}
+
+header .input-div .vs-input {
+  margin: 0 7px;
+  padding: 0 10px;
+  width: 100%;
+  flex: 1;
+  color: #373737;
+
+  &.active {
+    input {
+      // width: 100%;
+      width: 200px;
+      transition: width 2s;
+
+      &:active,
+      &:focus {
+        // max-width: 100%;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.vuesax-app-is-ltr .vs-input--input.hasValue+.vs-placeholder-label,
+.vuesax-app-is-ltr .vs-input--input:focus+.vs-placeholder-label {
+  margin-top: 5px;
+}
+
+.chat-div .chatting .vs-button {
+    height: 33px;
+}
+
+.vs-input {
+  color: #171717;
+}
+.con-select {
+  color: #171717;
+
+}
+
+.vs-button {
+  // width: 100%;
+  height: 100%;
+
+}
+
+.vs-button-border.isActive .vs-button--icon, .vs-button-border.isActive .vs-button--text, .vs-button-flat.isActive .vs-button--icon, .vs-button-flat.isActive .vs-button--text {
+  color: $base-color !important
+}

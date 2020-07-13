@@ -1,0 +1,13 @@
+@media only screen and (max-width: 1050px) {
+  .test-body {
+    flex-direction: column;
+    .half {
+      padding:  0 ;
+      &.right {
+        video {
+          background: black;
+        }
+      }
+    }
+  }
+}
