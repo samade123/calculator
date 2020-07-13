@@ -14,7 +14,8 @@ module.exports = merge(common, {
   mode: "production",
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name]-[contentHash].css'
+      filename: '[name]-[contentHash].css',
+      chunkFilename: '[id].css',
     }),
     new CleanWebpackPlugin(),
 
@@ -32,10 +33,10 @@ module.exports = merge(common, {
         }],
       },
       canPrint: true
-    }), new TerserPlugin, ],
+    }), new TerserPlugin({}), ],
   },
   output: {
-    filename: '[name]-[contentHash].js'
+    filename: '[name]-[contentHash].js',
   },
   module: {
     rules: [{

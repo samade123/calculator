@@ -32,7 +32,7 @@ module.exports = {
       template: "./src/index.html",
       minify: false,
     }),
-    new MiniCssExtractPlugin(),
+    // new MiniCssExtractPlugin(),
     // new CleanWebpackPlugin(),
     new ImageminPlugin({
       disable: process.env.NODE_ENV !== 'production', // Disable during development
