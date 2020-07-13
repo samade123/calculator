@@ -33,7 +33,17 @@ module.exports = merge(common, {
         }],
       },
       canPrint: true
-    }), new TerserPlugin({}), ],
+    }), new TerserPlugin({
+      parallel: true,
+      terserOptions: {
+         output: {
+           comments: false,
+         },
+       },
+       extractComments: false,
+       
+
+    }), ],
   },
   output: {
     filename: '[name]-[contentHash].js',
