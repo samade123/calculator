@@ -1,13 +1,9 @@
 import Vuesax from 'vuesax'
 import VueWindowSize from 'vue-window-size';
-import adapter from 'webrtc-adapter'; //!! important needed for webrtc suport on all browsers
-
 // require('vuesax/dist/vuesax.css') //Vuesax styles
 require('../scss/app.scss');
-var http = require('http');
-
 window.Vue = require('vue');
-Vue.config.devtools = true /* Uncomment if vue extension devtools isn't working */
+// Vue.config.devtools = true /* Uncomment if vue extension devtools isn't working */
 
 Vue.use(VueWindowSize);
 Vue.use(Vuesax, {
