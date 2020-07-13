@@ -106,16 +106,6 @@ module.exports = {
           loader: 'worker-loader'
         }
       },
-      // {
-      //   test: /\.(png|svg|jpg|gif)$/i,
-      //   exclude: /node_modules/,
-      //   use: [{
-      //     loader: 'file-loader',
-      //     options: {
-      //       name: '[path][name].[ext]',
-      //     },
-      //   }, ],
-      // },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [{
