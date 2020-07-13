@@ -43,7 +43,7 @@ export default {
   watch: {},
   methods: {
     pressBtn(btn) {
-      this.tempVal.push(btn.value);
+      this.tempVal.push(btn.label);
     },
   },
   created() {},

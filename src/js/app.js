@@ -1,8 +1,8 @@
 import Vuesax from 'vuesax'
-import 'vuesax/dist/vuesax.css' //Vuesax styles
 import VueWindowSize from 'vue-window-size';
 import adapter from 'webrtc-adapter'; //!! important needed for webrtc suport on all browsers
 
+// require('vuesax/dist/vuesax.css') //Vuesax styles
 require('../scss/app.scss');
 var http = require('http');
 

@@ -2,6 +2,8 @@ $base-color: #1A1D1F;
 $secondary-color: #FAF8F2;
 $border-color: #d7d7d7dd;
 
+@import "normalize";
+
 body,
 html {
   box-sizing: border-box;
@@ -94,7 +96,8 @@ footer {
 
 #page-root {
 }
-@import "vuesax";
+@import "vuesax.css";
+@import "vuesax.scss";
 @import "animate";
 @import "sidebar";
 @import "calc";
