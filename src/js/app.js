@@ -3,7 +3,7 @@ import VueWindowSize from 'vue-window-size';
 // require('vuesax/dist/vuesax.css') //Vuesax styles
 require('../scss/app.scss');
 window.Vue = require('vue');
-// Vue.config.devtools = true /* Uncomment if vue extension devtools isn't working */
+Vue.config.devtools = true /* Uncomment if vue extension devtools isn't working */
 
 Vue.use(VueWindowSize);
 Vue.use(Vuesax, {
