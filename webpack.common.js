@@ -12,6 +12,8 @@ var WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 var WebpackNotifierPlugin = require('webpack-notifier');
 var nodeExternals = require('webpack-node-externals');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+var WebpackPwaManifest = require('webpack-pwa-manifest')
+
 
 
 
@@ -27,6 +29,19 @@ module.exports = {
   //     })],
   plugins: [
     // new CleanWebpackPlugin(),
+    new WebpackPwaManifest({
+    name: 'Calculator',
+    short_name: 'Calc',
+    description: 'Basic Calculator App',
+    background_color: '#FAF8F2',
+    crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+    icons: [
+      {
+        src: path.resolve('src/images/calculator-line.png'),
+        sizes: [96, 128, 192, 256] // multiple sizes
+      },
+    ]
+  }),
 
     new HtmlWebpackPlugin({
       template: "./src/index.html",

@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require("terser-webpack-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
+
 
 
 
@@ -18,8 +20,19 @@ module.exports = merge(common, {
       chunkFilename: '[id].css',
     }),
     new CleanWebpackPlugin(),
-
-    // new NpmInstallPlugin()
+    new HtmlCriticalWebpackPlugin({
+      base: path.resolve(__dirname, 'dist'),
+      src: 'index.html',
+      dest: 'index.html',
+      inline: true,
+      minify: true,
+      extract: false,
+      width: 375,
+      height: 565,
+      penthouse: {
+        blockJSRequests: false,
+      }
+    })
   ],
   optimization: {
     minimizer: [new OptimizeCssAssetsPlugin({
@@ -41,7 +54,6 @@ module.exports = merge(common, {
          },
        },
        extractComments: false,
-       
 
     }), ],
   },
