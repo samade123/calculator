@@ -7,7 +7,11 @@
 <script>
 
 export default {
-    props: {},
+    props: {
+      equations: {
+          type: Array,
+      },
+    },
     data() {
         return {
 
