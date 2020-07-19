@@ -1,12 +1,13 @@
 <template>
 <div class="calc-page">
   <div class="top">
-    <div class="input">
+    <div class="input" :style="{fontSize: fontSize()}">
       <span v-for="number in tempVal">{{number}}</span>
       <span v-if="totalVal.show">{{totalVal.value}}</span>
       <span v-if="tempVal.length > 0" class="material-icons backspace" @click="tempVal.pop()">backspace</span>
     </div>
-    <div class="summary" v-if="firstVal.label.length > 0">{{firstVal.label}} {{operation.label}} <span v-if="secondVal.label.length" >{{secondVal.label}}</span></div>
+    <div class="summary" v-if="firstVal.label.length > 0">{{firstVal.value}} {{operation.label}} <span v-if="secondVal.label.length" >{{secondVal.value}}</span></div>
+    <div class="summary" v-else > </div>
   </div>
   <div class="bottom">
     <div class="keypad">
@@ -36,21 +37,43 @@ export default {
         thirdRow: [{label: "7", type: "num", value: 7}, {label: "8", type: "num", value: 8},{label: "9", type: "num", value: 9}],
         lastRow: [{label: "0", type: "num", value: 7}, {label: ".", type: "operation", value: "shift" , disabled: true},{label: "=", type: "equal", value: "equal"}],
       },
-      operations: [{label: "÷", type: "operation", value: "divide", disabled: true}, {label: "x", type: "operation", value: "multiply", disabled: true,}, {label: "+", type: "operation", value: "sum", disabled: false}, {label: "-", type: "operation", value: "minus", disabled: true}],
+      operations: [{label: "÷", type: "operation", value: "divide", disabled: false}, {label: "x", type: "operation", value: "multiply", disabled: false,}, {label: "+", type: "operation", value: "sum", disabled: false}, {label: "-", type: "operation", value: "minus", disabled: false,},],
       tempVal: [],
       firstVal: {label: "", value: 0},
       secondVal: {label: "", value: 0},
       operation: {label: "", function: ""},
       totalVal: {value: 0, show: false},
+      equationStore: [],
       nextVal: false,
     };
   },
   watch: {},
   methods: {
+    fontSize(){
+    if (this.windowWidth < 600){
+      return this.tempVal.length > 4 || this.totalVal.value.toString().length > 4 ? "4em" : "6em";
+    }
+    },
+    clearTotal(){
+      this.totalVal.show = false;
+      this.firstVal = {label: "", value: 0};
+      this.secondVal = {label: "", value: 0};
+      this.totalVal = {value: 0, show: false};
+      this.operation = {label: "", function: ""};
+
+    },
     pressBtn(btn) {
+
       if(btn.type == "num") {
+        if (this.totalVal.show) {
+            this.clearTotal();
+       }
         this.tempVal.push(btn.label);
       } else if (btn.type == "operation") {
+        if (this.totalVal.show) {
+          this.totalVal.show = false;
+          this.firstVal.value = this.totalVal.value
+        }
         this.operation = btn;
         this.storeNewVal()
       } else if (btn.type == "equal") {

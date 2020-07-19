@@ -31,12 +31,13 @@
       justify-content: flex-end;
       align-items: center;
       padding-right: 10px;
+      transition: font-size 0.3s ease;
 
       span.material-icons {
         padding-left: 15px;
         font-size: 0.7em;
         font-weight: 800;
-        transition: font-size 0.5s;
+        transition: font-size 0.3s;
 
         &:hover {
           cursor: pointer;
@@ -47,8 +48,9 @@
 
     .summary {
       text-align: end;
-      flex: 1;
+      flex: 0.3;
       width: 90%;
+      // min-height: 37px;
       color: #00000044;
       padding: 10px;
       margin: 0 auto;
