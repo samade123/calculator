@@ -4,6 +4,7 @@
     <div class="input" :style="{fontSize: fontSize()}">
       <span v-for="number in tempVal">{{number}}</span>
       <span v-if="totalVal.show">{{totalVal.value}}</span>
+      <span v-if="totalVal.show > 0" class="material-icons backspace" @click="clearTotal()">backspace</span>
       <span v-if="tempVal.length > 0" class="material-icons backspace" @click="tempVal.pop()">backspace</span>
     </div>
     <div class="summary" v-if="firstVal.label.length > 0">{{firstVal.value}} {{operation.label}} <span v-if="secondVal.label.length" >{{secondVal.value}}</span></div>
@@ -94,9 +95,22 @@ export default {
 
       if (this.operation.value == "sum") {
         this.totalVal.value = this.firstVal.value + this.secondVal.value;
-        this.totalVal.show = true;
-        console.log(this.totalVal.value, this.firstVal.value, this.secondVal.value)
       }
+      if (this.operation.value == "minus") {
+        this.totalVal.value = this.firstVal.value - this.secondVal.value;
+      }
+      if (this.operation.value == "multiply") {
+        this.totalVal.value = this.firstVal.value * this.secondVal.value;
+      }
+      if (this.operation.value == "divide") {
+        this.totalVal.value = this.firstVal.value / this.secondVal.value;
+      }
+
+      this.tempEquation = {firstVal: this.firstVal.value, secondVal: this.secondVal.value, totalVal: this.totalVal.value, operation: this.operation.label,}
+      this.equationStore.push(this.tempEquation)
+      this.totalVal.show = true;
+      console.log(this.equationStore)
+      // console.log(this.totalVal.value, this.firstVal.value, this.secondVal.value)
     }
   },
   created() {},
