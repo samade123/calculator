@@ -1,7 +1,7 @@
 <template>
-    <div class="sidebar">
+    <!-- <div class="sidebar">
 
-    </div>
+    </div> -->
 </template>
 
 <script>
